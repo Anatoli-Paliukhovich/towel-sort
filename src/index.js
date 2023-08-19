@@ -12,3 +12,18 @@ module.exports = function towelSort(matrix = []) {
 	}
 	return result;
 }
+
+// One more solution
+module.exports = function towelSort(matrix = []) {
+	let result = matrix.map(function (item, index, array) {
+		if (index % 2) {
+			return item.reverse();
+		} else {
+			return item;
+		}
+	});
+	let combineArr = result.reduce(function (previousValue, item) {
+		return previousValue.concat(item);
+	});
+	return combineArr;
+}
